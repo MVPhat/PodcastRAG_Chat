@@ -7,6 +7,9 @@ env/
 venv/
 .venv/
 
+# Ignore your own custom data
+custom_data/
+
 # Ignore environment variable files
 .env
 .env.*
