@@ -1,6 +1,7 @@
 import streamlit as st
-from chatbot.chatAPI import llm_response
-from chatbot.chatbotUI_custom import user_style, bot_style
+# from chatbot.chatAPI import llm_response
+from chatbot.UI.chatAPI import llm_response
+from chatbot.UI.chatbotUI_custom import user_style, bot_style
 from utils.stream_text import stream_text
 
 st.set_page_config(page_title="ChatAPI", page_icon=":shark:", layout="wide")

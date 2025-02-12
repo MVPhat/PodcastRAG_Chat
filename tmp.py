@@ -16,22 +16,33 @@ contextualize_q_prompt = ChatPromptTemplate.from_messages(
     ]
 )
 
+=================================================================
 
+from langchain_huggingface import HuggingFaceEmbeddings
 
-
+model_name = "sentence-transformers/all-mpnet-base-v2"
+model_kwargs = {'device': 'cuda'}
+encode_kwargs = {'normalize_embeddings': False}
+hfe = HuggingFaceEmbeddings(
+    model_name=model_name,
+    model_kwargs=model_kwargs,
+    encode_kwargs=encode_kwargs
+)
 from langchain_chroma import Chroma
 
 collection_name = "podcast_transcripts"
 vectorstore = Chroma(
     collection_name=collection_name,
     persist_directory='/kaggle/input/rag-data-vectordb-chroma/chroma_db',
-    embedding_function=hf
+    embedding_function=hfe
 )
 
 print("Total Documents in Chroma:", vectorstore._collection.count())
+retriever = vectorstore.as_retriever(search_kwargs={"k": 20})
 
 
 
+=================================================================
 
 from langchain.chains.retrieval import create_retrieval_chain
 

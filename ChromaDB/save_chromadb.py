@@ -1,3 +1,6 @@
+# ======================================================
+# Chunking and Embedding
+
 from langchain_community.document_loaders import PyPDFLoader, Docx2txtLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from typing import List
@@ -28,3 +31,22 @@ text_splitter = RecursiveCharacterTextSplitter(
 print("Number of documents:", len(documents))
 splits = text_splitter.split_documents(documents)
 print("Number of chunks:", len(splits))
+
+
+# ======================================================
+
+
+from langchain_chroma import Chroma
+from ..utils.init_embedding_model import init_embedding_model
+
+embedding_model = init_embedding_model()
+
+collection_name = "podcast_transcripts"
+vectorstore = Chroma.from_documents(
+    collection_name=collection_name,
+    documents=splits,
+    embedding=embedding_model,
+    persist_directory="../custom_data/chroma_db"
+)
+print("Total Documents in Chroma:", vectorstore._collection.count())
+print("Vector store created and persisted to '../custom_data/chroma_db'")

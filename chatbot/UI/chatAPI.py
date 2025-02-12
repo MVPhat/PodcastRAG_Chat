@@ -4,9 +4,6 @@ from dotenv import load_dotenv
 import langchain
 from langchain_core.output_parsers import StrOutputParser
 from langchain_groq import ChatGroq
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_pinecone import PineconeVectorStore
-from pinecone import Pinecone
 
 load_dotenv()
 langchain.verbose = False
