@@ -25,6 +25,6 @@ text_splitter = RecursiveCharacterTextSplitter(
     chunk_overlap=200,
     length_function=len
 )
-print(len(documents))
+print("Number of documents:", len(documents))
 splits = text_splitter.split_documents(documents)
-print(len(splits))
+print("Number of chunks:", len(splits))

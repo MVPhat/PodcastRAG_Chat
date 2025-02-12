@@ -8,6 +8,6 @@ human = "{text}"
 prompt = ChatPromptTemplate.from_messages([("system", system), ("human", human)])
 output_parser = StrOutputParser()
 chain = prompt | llm | output_parser
-input_prompt = "What is Lunar New Year ?"
+input_prompt = "What is COVID-19 ?"
 llm_response = chain.invoke({"text": input_prompt})
 print(llm_response)
