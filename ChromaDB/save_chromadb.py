@@ -37,16 +37,17 @@ print("Number of chunks:", len(splits))
 
 
 from langchain_chroma import Chroma
-from ..utils.init_embedding_model import init_embedding_model
+from utils.init_embedding_model import init_embedding_model
+import os
 
 embedding_model = init_embedding_model()
-
+db_path = os.path.abspath("./custom_data/chroma_db")
 collection_name = "podcast_transcripts"
 vectorstore = Chroma.from_documents(
     collection_name=collection_name,
     documents=splits,
     embedding=embedding_model,
-    persist_directory="../custom_data/chroma_db"
+    persist_directory=db_path
 )
 print("Total Documents in Chroma:", vectorstore._collection.count())
 print("Vector store created and persisted to '../custom_data/chroma_db'")

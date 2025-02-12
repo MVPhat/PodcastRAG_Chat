@@ -17,3 +17,5 @@ transformers==4.43.2
 sentence-transformers==3.0.1
 langchain-huggingface
 kagglehub
+python-dotenv
+tf-keras
