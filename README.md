@@ -16,21 +16,21 @@ pip install -r requirements.txt
 
 Because of the limitation about the payment issue, I am using free Groq API without any payment requirements. You can replace your api key from other provider services supported by <a href="https://python.langchain.com/v0.2/docs/tutorials/rag/">Langchain</a> based on your decision.
 
-Please visit <a href="https://groq.com/">Groq.com</a> to generate your own API KEY. After acquiring your own api key, you have to create .env file at the same directory level of app.py file as follows:
+Please visit <a href="https://groq.com/">Groq.com</a> to generate your own API KEY. After acquiring your own api key, you have to create `.env` file at the same directory level of app.py file as follows:
 
-```python
+```
 GROQ_API_KEY = 'YOUR_API_KEY'
 ```
 
-If you would like to observe the process of API call from the langchain, please visit <a href="https://www.langchain.com/langsmith">Langsmith</a> and assign these keys into the .env file:
+If you would like to observe the process of API call from the langchain, please visit <a href="https://www.langchain.com/langsmith">Langsmith</a> and assign these keys into the `.env` file:
 
-```python
+```
 LANGCHAIN_TRACING_V2 = 'true'
 LANGCHAIN_API_KEY = 'YOUR_API_KEY'
 LANGCHAIN_PROJECT = 'YOUR_PROJECT_NAME'
 ```
 
-# Prepare Dataset
+## Prepare Dataset
 
 The dataset in this project is downloaded from <a href="https://www.kaggle.com/datasets/harrywang/acquired-podcast-transcripts-and-rag-evaluation">Acquired Podcast Transcripts and RAG Evaluation.
 </a>
@@ -41,7 +41,7 @@ To execute splitting the data into small chunks for vector storage, please navig
 python save_chromadb.py
 ```
 
-# Web-based demo
+## Web-based demo
 
 I have built a web application via <a href="https://streamlit.io/">Streamlit</a> which allows user to interact with the chatbot to ask about the question related to RAG contents as well as retrieving from the chat history.
 
@@ -58,7 +58,7 @@ Your website is now available at `http://localhost:8501/`
 
 <img src="./images/RAG_correct_query.png">
 
-# References
+## References
 
 1. Langchain RAG Course: https://blog.futuresmart.ai/series/langchain-rag-course
 2. Meta LLAMA 3.1. 70B for RAG - Groq - ChromaDB - Langchain: https://www.youtube.com/watch?v=3ZIjR5eSOv4&t=686s
