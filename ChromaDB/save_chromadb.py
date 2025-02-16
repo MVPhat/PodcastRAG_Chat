@@ -8,7 +8,7 @@ from langchain_core.documents import Document
 import os
 
 def load_texts():
-    files = os.listdir('./')
+    files = os.listdir('PATH/TO/DATASET')
     documents = []
     for file in files:
         if file.endswith('.pdf'):
@@ -41,7 +41,7 @@ from utils.init_embedding_model import init_embedding_model
 import os
 
 embedding_model = init_embedding_model()
-db_path = os.path.abspath("./custom_data/chroma_db")
+db_path = os.path.abspath("PATH/TO/VECTOR_DB_STORAGE")
 collection_name = "podcast_transcripts"
 vectorstore = Chroma.from_documents(
     collection_name=collection_name,
