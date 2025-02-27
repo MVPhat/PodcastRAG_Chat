@@ -45,16 +45,47 @@ python save_chromadb.py
 
 I have built a web application via <a href="https://streamlit.io/">Streamlit</a> which allows user to interact with the chatbot to ask about the question related to RAG contents as well as retrieving from the chat history.
 
-To run the website in local, make sure that:
+Make sure that:
 
-1. Modify the correct path to your vector storage from the above guidance in <a href="./ChromaDB/create_retriever_chromadb.py">create_retriever_chromadb.py</a> : `db_path = os.path.abspath("./custom_data/chroma_db")`
-2. You are in the correct `PATH/TO/app.py` and the press to your cmd:
+- Modify the correct path to your vector storage from the above guidance in <a href="./ChromaDB/create_retriever_chromadb.py">create_retriever_chromadb.py</a> : `db_path = os.path.asbspath("./custom_data/chroma_db")`
+
+#### Execute immediately in local:
+
+To run the website in local, you should be in the correct `PATH/TO/app.py` and the press to your cmd:
 
 ```
 streamlit run app.py
 ```
 
-Your website is now available at `http://localhost:8501/`
+#### Docker Run:
+
+The another option is that you can run the website via Docker.
+
+1. Build the Docker image:
+
+```
+docker build -t your-image-name .
+```
+
+2. Verify the built image:
+
+```
+docker images
+```
+
+3. Run the container:
+
+```
+docker run -p 8501:8501 --env-file .env your-image-name
+```
+
+4. Check if the container is already running:
+
+```
+docker ps
+```
+
+=>>>> After executing the website by either local or docker, your website is now available at `http://localhost:8501/`
 
 <img src="./images/RAG_correct_query.png">
 
