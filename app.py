@@ -64,13 +64,3 @@ for i, (old_prompt, old_response) in enumerate(st.session_state.history):
                 stream_text(old_response, bot_style, 0.01)
         else:
             stream_text(old_response, bot_style, 0)
-
-# for old_prompt, old_response in st.session_state.history:
-#     if activate_stream_rendering:
-#         stream_text(old_prompt, user_style, 0)
-#         stream_text(old_response, bot_style, 0.01)
-#     else:
-#         with st.chat_message(name="user", avatar="🤔"):
-#             st.write(old_prompt)
-#         with st.chat_message(name="bot", avatar="🤖"):
-#             st.write(old_response)
